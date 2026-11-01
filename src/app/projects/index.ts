@@ -5,8 +5,6 @@ import { worldmachineUnrealTerrain } from './worldmachine-unreal-terrain.project
 import { recursiveJointBaker } from './recursive-joint-baker.project';
 import { houdiniPyroRevealShader } from './houdini-pyro-reveal-shader.project';
 import { aiRetroDiorama } from './ai-retro-diorama.project';
-import { exampleShader } from './example-shader.project';
-import { exampleGame } from './example-game.project';
 
 /**
  * The card reel renders projects in this order (top to bottom).
@@ -19,6 +17,4 @@ export const PROJECTS: Project[] = [
   recursiveJointBaker,
   houdiniPyroRevealShader,
   aiRetroDiorama,
-  exampleShader,
-  exampleGame,
 ];
