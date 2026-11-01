@@ -1,0 +1,9 @@
+<section id="projects" class="reel" aria-labelledby="projects-label">
+  <h2 id="projects-label" class="section-label">Projects</h2>
+
+  @for (project of projects(); track project.id) {
+    <app-project-card [project]="project" />
+  } @empty {
+    <p class="reel__empty">No projects yet.</p>
+  }
+</section>

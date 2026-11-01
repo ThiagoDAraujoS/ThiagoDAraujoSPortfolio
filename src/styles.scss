@@ -1,0 +1,127 @@
+/* Global theme tokens. Change colors/fonts here and every component follows. */
+:root {
+  --bg: #070a12;
+  --surface: rgba(15, 23, 42, 0.6);
+  --surface-2: #0f172a;
+  --border: #1e293b;
+  --border-strong: #334155;
+  --text: #f1f5f9;
+  --text-soft: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+
+  --accent: #22d3ee; /* cyan */
+  --accent-2: #e879f9; /* fuchsia */
+  --accent-3: #fcd34d; /* amber */
+  --accent-dim: rgba(34, 211, 238, 0.12);
+  --accent-glow: 0 0 25px rgba(34, 211, 238, 0.18);
+
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+
+  --radius: 10px;
+  --page-width: 1000px;
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(34, 211, 238, 0.3);
+  color: #a5f3fc;
+}
+
+/* Soft cyan + fuchsia ambient glows behind everything. */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  z-index: -1;
+  width: 36rem;
+  height: 22rem;
+  border-radius: 50%;
+  filter: blur(130px);
+  pointer-events: none;
+}
+
+body::before {
+  top: -10rem;
+  left: 15%;
+  background: rgba(34, 211, 238, 0.1);
+}
+
+body::after {
+  top: 5rem;
+  right: 15%;
+  background: rgba(232, 121, 249, 0.1);
+}
+
+/* ---- Shared utility classes ---- */
+
+.gradient-text {
+  background: linear-gradient(90deg, #67e8f9, #f0abfc, #fde68a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pill {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.pill--cyan {
+  color: #67e8f9;
+  border-color: rgba(34, 211, 238, 0.4);
+  background: rgba(8, 51, 68, 0.6);
+}
+
+.pill--fuchsia {
+  color: #f0abfc;
+  border-color: rgba(217, 70, 239, 0.4);
+  background: rgba(74, 4, 78, 0.6);
+}
+
+.pill--amber {
+  color: #fcd34d;
+  border-color: rgba(245, 158, 11, 0.4);
+  background: rgba(69, 26, 3, 0.6);
+}
+
+/* Mono "// SECTION" label used above sections. */
+.section-label {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+
+  &::before {
+    content: '// ';
+    color: var(--accent);
+  }
+}

@@ -1,0 +1,45 @@
+@let p = project();
+
+<article class="card">
+  <div class="card__media">
+    @if (p.media?.type === 'video') {
+      <video [src]="p.media!.src" autoplay muted loop playsinline></video>
+    } @else if (p.media?.type === 'image') {
+      <img [src]="p.media!.src" [alt]="p.media!.alt ?? p.title" loading="lazy" />
+    } @else {
+      <div class="card__placeholder">{{ p.title }}</div>
+    }
+  </div>
+
+  <div class="card__body">
+    <header>
+      <h2 class="card__title">{{ p.title }}</h2>
+      @if (p.subtitle) {
+        <p class="card__subtitle">{{ p.subtitle }}</p>
+      }
+      @if (p.role || p.year) {
+        <p class="card__meta">{{ p.role }}{{ p.role && p.year ? ' · ' : '' }}{{ p.year }}</p>
+      }
+    </header>
+
+    @for (paragraph of p.description; track $index) {
+      <p>{{ paragraph }}</p>
+    }
+
+    @if (p.tags?.length) {
+      <ul class="card__tags">
+        @for (tag of p.tags; track tag) {
+          <li>{{ tag }}</li>
+        }
+      </ul>
+    }
+
+    @if (p.links?.length) {
+      <nav class="card__links">
+        @for (link of p.links; track link.url) {
+          <a [href]="link.url" target="_blank" rel="noopener">{{ link.label }} ↗</a>
+        }
+      </nav>
+    }
+  </div>
+</article>

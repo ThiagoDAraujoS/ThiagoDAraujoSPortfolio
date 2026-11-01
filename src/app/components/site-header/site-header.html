@@ -1,0 +1,28 @@
+<header id="about" class="hero">
+  <ul class="hero__roles">
+    @for (role of about.roles; track role.label) {
+      <li [class]="'pill pill--' + role.color">{{ role.label }}</li>
+    }
+  </ul>
+
+  <h1>
+    {{ about.headline.lead }}
+    <span class="gradient-text">{{ about.headline.highlight }}</span>
+    {{ about.headline.tail }}
+  </h1>
+
+  @for (paragraph of about.paragraphs; track $index) {
+    <p class="hero__text">{{ paragraph }}</p>
+  }
+
+  @if (about.facts.length) {
+    <dl class="hero__facts">
+      @for (fact of about.facts; track fact.label) {
+        <div>
+          <dt>{{ fact.label }}</dt>
+          <dd>{{ fact.value }}</dd>
+        </div>
+      }
+    </dl>
+  }
+</header>

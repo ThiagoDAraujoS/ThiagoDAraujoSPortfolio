@@ -1,0 +1,10 @@
+<footer id="contact" class="footer">
+  <h2 class="section-label">Contact</h2>
+  <nav class="footer__links">
+    <a [href]="'mailto:' + site.email">{{ site.email }}</a>
+    @for (social of site.socials; track social.url) {
+      <a [href]="social.url" target="_blank" rel="noopener">{{ social.label }}</a>
+    }
+  </nav>
+  <p>© {{ year }} {{ site.name }}</p>
+</footer>

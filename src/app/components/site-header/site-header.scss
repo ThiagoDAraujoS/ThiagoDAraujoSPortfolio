@@ -1,0 +1,55 @@
+.hero {
+  padding-block: 5rem 3rem;
+  scroll-margin-top: 4rem;
+
+  h1 {
+    margin: 0 0 1.5rem;
+    max-width: 18ch;
+    font-size: clamp(2.5rem, 6vw, 3.75rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+}
+
+.hero__roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.hero__text {
+  margin: 0 0 1rem;
+  max-width: 65ch;
+  font-size: 1.1rem;
+  color: var(--text-soft);
+}
+
+.hero__facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 2.5rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+
+  dt {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  dd {
+    margin: 0.15rem 0 0;
+    font-weight: 600;
+  }
+
+  div:nth-child(3n + 1) dd { color: var(--accent); }
+  div:nth-child(3n + 2) dd { color: var(--accent-2); }
+  div:nth-child(3n + 3) dd { color: var(--accent-3); }
+}
