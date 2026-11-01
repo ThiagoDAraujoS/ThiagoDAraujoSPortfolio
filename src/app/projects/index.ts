@@ -17,15 +17,15 @@ import { houdiniLowpolyTree } from './houdini-lowpoly-tree.project';
  * To add a card: create `<name>.project.ts` in this folder, then import it and add it here.
  */
 export const PROJECTS: Project[] = [
-  aiRetroDiorama,
-  worldmachineUnrealTerrain,
-  isometricSpritePipeline,
-  electronjsFlaskProjectManager,
-  houdiniPyroRevealShader,
-  recursiveJointBaker,
   blenderUnityVat,
-  houdiniDynamicCables,
+  worldmachineUnrealTerrain,
   aigen25dRendering,
-  photogrammetryPixelArt,
   houdiniLowpolyTree,
+  aiRetroDiorama,
+  isometricSpritePipeline,
+  houdiniPyroRevealShader,
+  photogrammetryPixelArt,
+  houdiniDynamicCables,
+  electronjsFlaskProjectManager,
+  recursiveJointBaker,
 ];
