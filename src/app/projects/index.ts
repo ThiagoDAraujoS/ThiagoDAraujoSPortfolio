@@ -3,6 +3,7 @@ import { isometricSpritePipeline } from './isometric-sprite-pipeline.project';
 import { electronjsFlaskProjectManager } from './electronjs-flask-project-manager.project';
 import { worldmachineUnrealTerrain } from './worldmachine-unreal-terrain.project';
 import { recursiveJointBaker } from './recursive-joint-baker.project';
+import { houdiniPyroRevealShader } from './houdini-pyro-reveal-shader.project';
 import { exampleShader } from './example-shader.project';
 import { exampleGame } from './example-game.project';
 
@@ -15,6 +16,7 @@ export const PROJECTS: Project[] = [
   electronjsFlaskProjectManager,
   worldmachineUnrealTerrain,
   recursiveJointBaker,
+  houdiniPyroRevealShader,
   exampleShader,
   exampleGame,
 ];
