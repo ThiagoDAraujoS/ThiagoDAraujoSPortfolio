@@ -24,6 +24,7 @@ export const PROJECTS: Project[] = [
   aigen25dRendering,
   houdiniLowpolyTree,
   aiRetroDiorama,
+  retrolutCompiler,
   isometricSpritePipeline,
   houdiniPyroRevealShader,
   photogrammetryPixelArt,
@@ -31,5 +32,4 @@ export const PROJECTS: Project[] = [
   electronjsFlaskProjectManager,
   recursiveJointBaker,
   proceduralRollingDoorRig,
-  retrolutCompiler,
 ];
