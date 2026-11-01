@@ -32,4 +32,5 @@ export const PROJECTS: Project[] = [
   electronjsFlaskProjectManager,
   recursiveJointBaker,
   proceduralRollingDoorRig,
+  retrolutCompiler,
 ];
