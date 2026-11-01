@@ -34,8 +34,11 @@
       </ul>
     }
 
-    @if (p.links?.length) {
+    @if (p.details?.length || p.links?.length) {
       <nav class="card__links">
+        @if (p.details?.length) {
+          <button class="card__more" (click)="detail.open()">Read more →</button>
+        }
         @for (link of p.links; track link.url) {
           <a [href]="link.url" target="_blank" rel="noopener">{{ link.label }} ↗</a>
         }
@@ -43,3 +46,5 @@
     }
   </div>
 </article>
+
+<app-project-detail #detail [project]="p" />

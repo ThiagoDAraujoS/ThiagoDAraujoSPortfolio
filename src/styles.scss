@@ -36,6 +36,11 @@ html {
   scroll-snap-type: y proximity;
 }
 
+/* Freeze the page behind an open "Read more" panel. */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
 body {
   margin: 0;
   background: var(--bg);

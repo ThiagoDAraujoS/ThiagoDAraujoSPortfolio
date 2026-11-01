@@ -1,0 +1,55 @@
+@let p = project();
+
+<dialog #dialog class="detail" [attr.aria-label]="p.title" (click)="onDialogClick($event)" (close)="isOpen.set(false)">
+  @if (isOpen()) {
+    <article class="detail__panel">
+      <button class="detail__close" (click)="close()" aria-label="Close">✕</button>
+
+      @if (p.media?.type === 'image') {
+        <img class="detail__cover" [src]="p.media!.src" [alt]="p.media!.alt ?? p.title" />
+      }
+
+      <header class="detail__header">
+        <h2>{{ p.title }}</h2>
+        @if (p.subtitle) {
+          <p class="detail__subtitle">{{ p.subtitle }}</p>
+        }
+      </header>
+
+      @for (block of p.details; track $index) {
+        @switch (block.type) {
+          @case ('heading') {
+            <h3 class="section-label">{{ block.text }}</h3>
+          }
+          @case ('subheading') {
+            <h4>{{ block.text }}</h4>
+          }
+          @case ('paragraph') {
+            <p>{{ block.text }}</p>
+          }
+          @case ('image') {
+            <figure>
+              <img [src]="block.image.src" [alt]="block.image.alt ?? ''" loading="lazy" />
+              @if (block.image.caption) {
+                <figcaption>{{ block.image.caption }}</figcaption>
+              }
+            </figure>
+          }
+          @case ('carousel') {
+            <app-image-carousel [images]="block.images" />
+          }
+          @case ('steps') {
+            <dl class="detail__steps">
+              @for (step of block.items; track step.title) {
+                <div>
+                  <dt>{{ step.title }}</dt>
+                  <dd>{{ step.text }}</dd>
+                </div>
+              }
+            </dl>
+          }
+        }
+      }
+    </article>
+  }
+</dialog>

@@ -113,6 +113,8 @@
 .card__links {
   margin-top: auto;
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 1rem;
   font-family: var(--font-mono);
   font-size: 0.8rem;
@@ -126,5 +128,22 @@
     &:hover {
       color: var(--accent-2);
     }
+  }
+}
+
+.card__more {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid rgba(34, 211, 238, 0.5);
+  border-radius: 6px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: var(--accent-glow);
   }
 }

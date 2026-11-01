@@ -1,0 +1,111 @@
+import { Project } from '../models/project.model';
+
+const IMG = 'images/isometric_pipeline';
+
+export const isometricSpritePipeline: Project = {
+  id: 'isometric-sprite-pipeline',
+  title: 'Isometric Sprite Pipeline',
+  subtitle: 'Houdini · TOPs / PDG · HDAs',
+  description: [
+    'A Houdini pipeline that batch renders 3D assets into isometric sprite sheets, along with matching normal and cutout alpha sheets. 3D assets go in one folder, sprites come out the other.',
+  ],
+  tags: ['Houdini', 'TOPs / PDG', 'HDA', 'COPs', 'Sprite Sheets'],
+  media: { type: 'image', src: `${IMG}/Cover.jpg`, alt: 'Albedo, cutout alpha and normal sprite sheets' },
+
+  details: [
+    {
+      type: 'paragraph',
+      text: "Today, I'll show a specialized pipeline I've crafted in Houdini, aimed at simplifying the process of generating isometric sprites out of 3D assets, along with accompanying normal and cutout alpha sprite sheets. Let's dive into the details.",
+    },
+
+    { type: 'heading', text: 'What is this for?' },
+    {
+      type: 'paragraph',
+      text: 'At its core, this art asset pipeline has a straightforward purpose: to efficiently batch render 3D assets and create isometric sprite sheets. All of this is achieved with a minimal need for manual intervention. In short, 3D assets are placed in the in folder and isometric sprites come out of the out folder.',
+    },
+    {
+      type: 'carousel',
+      images: [1, 2, 3, 4, 5, 6].map((n) => ({ src: `${IMG}/Example ${n}.jpg`, alt: `Example output ${n}` })),
+    },
+
+    { type: 'heading', text: 'Usage' },
+    {
+      type: 'paragraph',
+      text: 'One of the primary objectives in developing this pipeline was to make it artist-friendly. Here\'s how to use it: artists need only place their assets in a designated folder, select the desired camera angle (45 degrees by default) and how many pixels per unit are expected, and start the rendering process with a single click. The pipeline takes care of the rest.',
+    },
+
+    { type: 'heading', text: 'How does it work?' },
+    {
+      type: 'carousel',
+      images: [1, 2, 3, 4].map((n) => ({ src: `${IMG}/Pipeline ${n}.jpg`, alt: `Houdini TOP network, part ${n}` })),
+    },
+    {
+      type: 'paragraph',
+      text: "The inner workings of this pipeline revolve around a task operator network (TOP) in Houdini. This network efficiently schedules the rendering of each object within the specified folder and its various post processes. In fairness, it's actually quite simple.",
+    },
+
+    { type: 'heading', text: 'Detailed Process' },
+
+    { type: 'subheading', text: '1 — Pipeline and Camera Setup' },
+    {
+      type: 'steps',
+      items: [
+        { title: 'Build Folder Structure', text: 'The pipeline builds all the temporary folders used by it.' },
+        { title: 'Centering', text: 'The pipeline starts by centering the camera rig around the object centroid.' },
+        {
+          title: 'Framing',
+          text: 'An HDA is responsible for determining the optimal camera framing width, producing a file that encapsulates all necessary camera settings. Using the data generated, the pipeline then configures each camera.',
+        },
+      ],
+    },
+
+    { type: 'subheading', text: '2 — Albedo & Cutout Pass' },
+    {
+      type: 'steps',
+      items: [
+        { title: 'Rendering', text: 'Each camera is rendered and its resulting images are stored in a temporary folder.' },
+        {
+          title: 'Cropping',
+          text: 'Another HDA is triggered. This HDA assesses whether the images can be further cropped while still adhering to power-of-2 dimensions.',
+        },
+        {
+          title: 'Compose Sheet',
+          text: 'Now that all images are rendered and cropped, this step weaves all images into one sprite sheet.',
+        },
+        {
+          title: 'Export Sprite as JPG',
+          text: 'The pipeline discards the alpha channel of the EXR image and exports the result as a JPG.',
+        },
+        {
+          title: 'Export Cutout Alpha as JPG',
+          text: 'With the discarded alpha, the pipeline builds a cutout alpha texture.',
+        },
+      ],
+    },
+
+    { type: 'subheading', text: '3 — Normal Pass' },
+    { type: 'image', image: { src: `${IMG}/Normal Pass.jpg`, alt: 'Normal pass sprite sheet' } },
+    {
+      type: 'steps',
+      items: [
+        {
+          title: 'Shader Setup',
+          text: "The shader used for the normal rendering is a custom shader that does not react to light; for each pixel it returns the object's camera-space normals.",
+        },
+        { title: 'Rendering', text: 'Each camera is rendered and its resulting images are stored in a temporary folder.' },
+        {
+          title: 'Format Normal Map',
+          text: "This step uses a COP2 network to convert the render's normals into regular normal map formatting. It also replaces the alpha with forward vectors.",
+        },
+        {
+          title: 'Cropping',
+          text: 'Using the data generated by the albedo crop step, these textures are cropped to fit their optimal sizing.',
+        },
+        {
+          title: 'Compose Sheet',
+          text: 'Like the albedo pass, these textures are composed into a sprite sheet and exported as JPGs.',
+        },
+      ],
+    },
+  ],
+};

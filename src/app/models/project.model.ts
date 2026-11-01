@@ -11,6 +11,29 @@ export interface ProjectMedia {
   alt?: string;
 }
 
+/** An image inside the "Read more" write-up. Path is relative to /public. */
+export interface DetailImage {
+  src: string;
+  alt?: string;
+  caption?: string;
+}
+
+/**
+ * One block of the "Read more" write-up. A write-up is just a list of these, rendered top to bottom.
+ * - heading / subheading: section titles
+ * - paragraph: a block of text
+ * - image: a single full-width image
+ * - carousel: a set of images with prev/next arrows
+ * - steps: a list of named steps ("Rendering: Each camera is rendered...")
+ */
+export type DetailBlock =
+  | { type: 'heading'; text: string }
+  | { type: 'subheading'; text: string }
+  | { type: 'paragraph'; text: string }
+  | { type: 'image'; image: DetailImage }
+  | { type: 'carousel'; images: DetailImage[] }
+  | { type: 'steps'; items: { title: string; text: string }[] };
+
 /** Everything a project card needs. One Project = one file in src/app/projects/. */
 export interface Project {
   /** Unique, kebab-case. Also used as the card's HTML id for deep links (#my-project). */
@@ -26,4 +49,6 @@ export interface Project {
   tags?: string[];
   media?: ProjectMedia;
   links?: ProjectLink[];
+  /** Optional long write-up. When present, the card shows a "Read more" button that opens it. */
+  details?: DetailBlock[];
 }

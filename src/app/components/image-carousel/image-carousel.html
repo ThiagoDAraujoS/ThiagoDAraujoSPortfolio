@@ -1,0 +1,33 @@
+<figure
+  class="carousel"
+  tabindex="0"
+  aria-roledescription="carousel"
+  (keydown.arrowleft)="go(-1)"
+  (keydown.arrowright)="go(1)"
+>
+  <div class="carousel__stage">
+    <img [src]="current().src" [alt]="current().alt ?? ''" />
+
+    @if (images().length > 1) {
+      <button class="carousel__arrow carousel__arrow--prev" (click)="go(-1)" aria-label="Previous image">‹</button>
+      <button class="carousel__arrow carousel__arrow--next" (click)="go(1)" aria-label="Next image">›</button>
+      <span class="carousel__count">{{ index() + 1 }} / {{ images().length }}</span>
+    }
+  </div>
+
+  @if (images().length > 1) {
+    <div class="carousel__dots">
+      @for (image of images(); track image.src; let i = $index) {
+        <button
+          [class.active]="i === index()"
+          (click)="index.set(i)"
+          [attr.aria-label]="'Show image ' + (i + 1)"
+        ></button>
+      }
+    </div>
+  }
+
+  @if (current().caption) {
+    <figcaption>{{ current().caption }}</figcaption>
+  }
+</figure>
