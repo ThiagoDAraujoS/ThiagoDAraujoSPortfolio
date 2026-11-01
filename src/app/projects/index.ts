@@ -10,6 +10,7 @@ import { houdiniDynamicCables } from './houdini-dynamic-cables.project';
 import { aigen25dRendering } from './aigen-2-5d-rendering.project';
 import { photogrammetryPixelArt } from './photogrammetry-pixel-art.project';
 import { houdiniLowpolyTree } from './houdini-lowpoly-tree.project';
+import { proceduralRollingDoorRig } from './procedural-rolling-door-rig.project';
 
 
 /**
@@ -28,4 +29,5 @@ export const PROJECTS: Project[] = [
   houdiniDynamicCables,
   electronjsFlaskProjectManager,
   recursiveJointBaker,
+  proceduralRollingDoorRig,
 ];
