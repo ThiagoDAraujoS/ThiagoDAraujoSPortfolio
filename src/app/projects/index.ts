@@ -9,6 +9,7 @@ import { blenderUnityVat } from './blender-unity-vat.project';
 import { houdiniDynamicCables } from './houdini-dynamic-cables.project';
 import { aigen25dRendering } from './aigen-2-5d-rendering.project';
 import { photogrammetryPixelArt } from './photogrammetry-pixel-art.project';
+import { houdiniLowpolyTree } from './houdini-lowpoly-tree.project';
 
 
 /**
@@ -26,4 +27,5 @@ export const PROJECTS: Project[] = [
   houdiniDynamicCables,
   aigen25dRendering,
   photogrammetryPixelArt,
+  houdiniLowpolyTree,
 ];
