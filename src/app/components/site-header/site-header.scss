@@ -12,6 +12,42 @@
   }
 }
 
+.hero__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 3rem;
+
+  @media (max-width: 760px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Round photo with a cyan → fuchsia → amber ring. */
+.hero__avatar {
+  width: 240px;
+  aspect-ratio: 1;
+  padding: 4px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2), var(--accent-3));
+  box-shadow: 0 0 40px rgba(34, 211, 238, 0.2), 0 0 60px rgba(232, 121, 249, 0.15);
+
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--bg);
+  }
+
+  @media (max-width: 760px) {
+    order: -1;
+    width: 150px;
+  }
+}
+
 .hero__roles {
   display: flex;
   flex-wrap: wrap;

@@ -6,28 +6,33 @@ export const ABOUT = {
   /** Small colored pills above the headline. */
   roles: [
     { label: 'Technical Artist', color: 'cyan' },
-    { label: 'Game Programmer', color: 'fuchsia' },
+    { label: 'Programmer', color: 'fuchsia' },
     { label: 'Tools & Pipelines', color: 'amber' },
   ] satisfies { label: string; color: AccentColor }[],
 
   /** Big headline. `highlight` is rendered with the cyan → fuchsia → amber gradient. */
   headline: {
-    lead: 'Hi, I make games',
-    highlight: 'look and feel',
-    tail: 'great.',
+    lead: 'Tools, shaders and pipelines that',
+    highlight: 'remove friction',
+    tail: 'from development.',
+  },
+
+  /** Photo next to the text. Path is relative to /public. Remove to hide. */
+  avatar: {
+    src: 'images/header/avatar.jpeg',
+    alt: 'Portrait of Thiago de Araujo Silva',
   },
 
   /** About-me text. Each string becomes its own paragraph. */
   paragraphs: [
-    'Write a short intro here: who you are, what you love working on, and what kind of role you are looking for.',
-    'Optional second paragraph: background, favorite tools, or what you are currently learning.',
+    'I am a Technical Artist and programmer based in the Vancouver area who builds the tools, shaders, and pipelines that make life easier for artists and engineers. I have a background in Game Programming from VFS and PUC-MG, and Technical Arts from BCIT.',
+    'I have a passion for devising artistic pipelines and custom tooling that remove friction from development, whether that means writing procedural generation scripts, external tools, exploring new content creation software, or setting up efficient asset workflows.',
   ],
 
   /** Quick-facts strip under the text. Remove all entries to hide it. */
   facts: [
-    { label: 'Engines', value: 'Unity · Unreal' },
-    { label: 'Languages', value: 'C# · C++ · HLSL' },
-    { label: 'Tools', value: 'Blender · Houdini' },
-    { label: 'Based in', value: 'Your City' },
+    { label: 'Based in', value: 'Vancouver area' },
+    { label: 'Education', value: 'VFS · PUC-MG · BCIT' },
+    { label: 'Focus', value: 'Tools · Shaders · Pipelines' },
   ],
 };

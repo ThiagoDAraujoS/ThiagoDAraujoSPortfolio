@@ -20,6 +20,8 @@ src/app/
     site-footer/            # contact + socials
 src/styles.scss             # global theme tokens (CSS variables)
 public/projects/            # images / videos for cards
+public/images/header/       # avatar photo used by the about-me header
+                            # (only files under public/ are served — never put assets elsewhere)
 ```
 
 ## Adding a new card (only touch these files)

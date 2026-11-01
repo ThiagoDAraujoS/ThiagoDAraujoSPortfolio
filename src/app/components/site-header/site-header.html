@@ -1,19 +1,29 @@
 <header id="about" class="hero">
-  <ul class="hero__roles">
-    @for (role of about.roles; track role.label) {
-      <li [class]="'pill pill--' + role.color">{{ role.label }}</li>
+  <div class="hero__intro">
+    <div>
+      <ul class="hero__roles">
+        @for (role of about.roles; track role.label) {
+          <li [class]="'pill pill--' + role.color">{{ role.label }}</li>
+        }
+      </ul>
+
+      <h1>
+        {{ about.headline.lead }}
+        <span class="gradient-text">{{ about.headline.highlight }}</span>
+        {{ about.headline.tail }}
+      </h1>
+
+      @for (paragraph of about.paragraphs; track $index) {
+        <p class="hero__text">{{ paragraph }}</p>
+      }
+    </div>
+
+    @if (about.avatar) {
+      <div class="hero__avatar">
+        <img [src]="about.avatar.src" [alt]="about.avatar.alt" />
+      </div>
     }
-  </ul>
-
-  <h1>
-    {{ about.headline.lead }}
-    <span class="gradient-text">{{ about.headline.highlight }}</span>
-    {{ about.headline.tail }}
-  </h1>
-
-  @for (paragraph of about.paragraphs; track $index) {
-    <p class="hero__text">{{ paragraph }}</p>
-  }
+  </div>
 
   @if (about.facts.length) {
     <dl class="hero__facts">
