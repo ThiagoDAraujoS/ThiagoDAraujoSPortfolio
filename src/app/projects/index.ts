@@ -1,6 +1,7 @@
 import { Project } from '../models/project.model';
 import { isometricSpritePipeline } from './isometric-sprite-pipeline.project';
 import { electronjsFlaskProjectManager } from './electronjs-flask-project-manager.project';
+import { worldmachineUnrealTerrain } from './worldmachine-unreal-terrain.project';
 import { exampleShader } from './example-shader.project';
 import { exampleGame } from './example-game.project';
 
@@ -11,6 +12,7 @@ import { exampleGame } from './example-game.project';
 export const PROJECTS: Project[] = [
   isometricSpritePipeline,
   electronjsFlaskProjectManager,
+  worldmachineUnrealTerrain,
   exampleShader,
   exampleGame,
 ];
