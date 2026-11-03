@@ -16,6 +16,11 @@
       @for (paragraph of about.paragraphs; track $index) {
         <p class="hero__text">{{ paragraph }}</p>
       }
+
+      <div class="hero__actions">
+        <a class="hero__button hero__button--primary" [href]="resumeUrl" target="_blank" rel="noopener">View resume ↗</a>
+        <a class="hero__button" [href]="resumeUrl" download>Download PDF</a>
+      </div>
     </div>
 
     @if (about.avatar) {

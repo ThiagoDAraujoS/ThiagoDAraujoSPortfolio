@@ -64,6 +64,41 @@
   color: var(--text-soft);
 }
 
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.hero__button {
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  &--primary {
+    border-color: rgba(34, 211, 238, 0.5);
+    background: var(--accent-dim);
+    color: var(--accent);
+
+    &:hover {
+      box-shadow: var(--accent-glow);
+    }
+  }
+}
+
 .hero__facts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
