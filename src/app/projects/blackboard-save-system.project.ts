@@ -16,7 +16,7 @@ export const blackboardSaveSystem: Project = {
   details: [
     {
       type: 'paragraph',
-      text: 'A decoupled, high-performance RAII save and state management framework for Unity. Designed with deterministic 4-level state partitioning, reference-counted BlackboardFile lifecycles, and zero-allocation gameplay state decorators via Tracked<T>.',
+      text: 'A decoupled, high-performance RAII serialization management framework for Unity. Designed with 4-level state partitioning, reference-counted BlackboardFile lifecycles and easy local variable tracking with Tracked<T> decorators.',
     },
     { type: 'image', image: { src: `${IMG}/flow.svg`, alt: 'Diagram of the save flow from anchors to save archive', caption: 'Save flow: anchors → blackboard → session → archive' } },
     {
