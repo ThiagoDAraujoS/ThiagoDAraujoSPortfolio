@@ -13,7 +13,7 @@ export const ABOUT = {
   /** Big headline. `highlight` is rendered with the cyan → fuchsia → amber gradient. */
   headline: {
     lead: 'Finding New Ways to',
-    highlight: 'Build, Automate, and Create',
+    highlight: 'Build, Automate and Create',
     tail: '',
   },
 

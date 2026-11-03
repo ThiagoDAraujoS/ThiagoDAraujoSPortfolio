@@ -12,6 +12,7 @@ import { photogrammetryPixelArt } from './photogrammetry-pixel-art.project';
 import { houdiniLowpolyTree } from './houdini-lowpoly-tree.project';
 import { proceduralRollingDoorRig } from './procedural-rolling-door-rig.project';
 import { retrolutCompiler } from './retrolut-compiler.project';
+import { blackboardSaveSystem } from './blackboard-save-system.project';
 
 
 /**
@@ -32,4 +33,5 @@ export const PROJECTS: Project[] = [
   electronjsFlaskProjectManager,
   recursiveJointBaker,
   proceduralRollingDoorRig,
+  blackboardSaveSystem,
 ];
