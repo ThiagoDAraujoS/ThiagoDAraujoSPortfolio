@@ -30,8 +30,8 @@ export const PROJECTS: Project[] = [
   houdiniPyroRevealShader,
   photogrammetryPixelArt,
   houdiniDynamicCables,
+  blackboardSaveSystem,
   electronjsFlaskProjectManager,
   recursiveJointBaker,
   proceduralRollingDoorRig,
-  blackboardSaveSystem,
 ];

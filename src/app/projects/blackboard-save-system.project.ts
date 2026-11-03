@@ -14,6 +14,7 @@ export const blackboardSaveSystem: Project = {
   links: [{ label: 'Project page & repository', url: 'https://thiagodaraujos.github.io/BlackboardSaveSystem/' }],
 
   details: [
+    { type: 'image', image: { src: `${IMG}/flow.svg`, alt: 'Diagram of the save flow from anchors to save archive', caption: 'Save flow: anchors → blackboard → session → archive' } },
     {
       type: 'steps',
       items: [
@@ -35,6 +36,5 @@ export const blackboardSaveSystem: Project = {
         },
       ],
     },
-    { type: 'image', image: { src: `${IMG}/flow.svg`, alt: 'Diagram of the save flow from anchors to save archive', caption: 'Save flow: anchors → blackboard → session → archive' } },
   ],
 };
